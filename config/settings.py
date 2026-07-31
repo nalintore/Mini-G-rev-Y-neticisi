@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # DRF ve core uygulamaalrını ekledim.
+    'rest_framework',
+    'core',
+    'rest_framework_simplejwt',  # jwt dosaysı ekledim
 ]
 
 MIDDLEWARE = [
@@ -115,3 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+#VArsayılan kimlik doğrulama ayarları
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # tüm api uç noktaları kilitlidir.
+    ),
+}
