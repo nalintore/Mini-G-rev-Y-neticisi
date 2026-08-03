@@ -1,17 +1,40 @@
 import logging
+import django.db.models import Q 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.pagination import PageNumberPagination
 from .models import Project, Task
 from .serializers import ProjectSerializer, TaskSerializer
 
 logger = logging.getLogger(__name__)
 
+class CustomPagination(PageNumberPagination):
+    page_size = 5 # varsayılan sayfa
+    page_size_query_param = 'page_size'  # kullanıcı değiştirebilir
+    max_page_size = 50 
+
 class ProjectListCreateAPIView(APIView):
 
     def get(self, request):
         try:
-            projects = Project.objects.all()
+            projects = Project.objects.all().order_by('-created_at')
+            # 1. arama:
+            search_query = request.query_params.get('search', None)
+            if search_query:
+                projects = projects.filter(
+                    Q(name__icontains=search_query) |
+                    Q(description__icontains = search_query)
+                )
+
+            # 2. sayfalama:
+            paginator = CustomPagination()
+            page = paginator.paginate_queryset(project, request)
+
+            if page is not None:
+                serializer = ProjectSerializer(page, many = True)
+                return paginator.get_paginated_response(serializer.data)
+
             serializer = ProjectSerializer(projects, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
@@ -36,9 +59,31 @@ class ProjectTaskLİstCreateAPIVİew(APIView):
     def get(self, reqeust, pk):
         try: 
             project = Project.objects.get(pk=pk)
-            tasks = Task.objects.filter(projects=projects)
+            tasks = Task.objects.filter(projects=projects).order_by('-created_at')
+
+            # 1. filtreleme:
+            status_param =request.query_params.get('search', None)
+            if status_param:
+                tasks = tasks.filter(status = status_param)
+
+            # 2. arama:
+            search_query = request.query_params.get('search', None)
+            if search_query:
+                tasks _ tasks.filter(
+                    Q(title__icontains=search_query) |
+                    Q(description__icontains=search_query)
+                )
+
+            # 3. sayfalama:
+            paginator = CustomPagination()
+            page = paginator.paginate_queryset(tasks, request)
+            if page is not None:
+                serializer = TaskSerializer(page, many= True)
+                return paginator.get_paginated_respınse(serializer.data)
+            
             serializer = TaskSerializer(tasks, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
+        
         except Project.DoesNotExist:
             return Response({"error": "Proje bulunamadı."}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
