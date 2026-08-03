@@ -1,0 +1,27 @@
+{
+	"info": {
+		"name": "Mini Görev Yöneticisi API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 - Token Al (JWT)",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type", "value": "application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+				},
+				"url": "http://127.0.0.1:8000/api/token/"
+			}
+		},
+		{
+			"name": "02 - Projeleri Listele",
+			"request": {
+				"method": "GET",
+				"url": "http://127.0.0.1:8000/api/projects/?search=&page=1"
+			}
+		}
+	]
+}
