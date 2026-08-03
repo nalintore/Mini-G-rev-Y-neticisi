@@ -1,0 +1,12 @@
+### 1. Token Al
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "nalin",
+    "password": "nalin.1"
+}
+
+### 2. Projeleri Listele (Token ile)
+GET http://127.0.0.1:8000/api/projects/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg1NzYwMzg5LCJpYXQiOjE3ODU3NjAwODksImp0aSI6IjMwNmE0Y2QxMGY5NzQwZDViNTc1ZDk1MzJlMjkyYWY0IiwidXNlcl9pZCI6IjEifQ.blV9M54F_JbKXwzN7kAQ067YqX9TmgZrLTJzmhn_LcM

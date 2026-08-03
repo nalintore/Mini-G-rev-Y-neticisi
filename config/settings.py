@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'rest_framework_simplejwt',  # jwt dosaysı ekledim
+    'drf_spectacular',  # drf spectacular dosyasını ekledim 
 ]
 
 MIDDLEWARE = [
@@ -127,4 +128,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',  # tüm api uç noktaları kilitlidir.
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }

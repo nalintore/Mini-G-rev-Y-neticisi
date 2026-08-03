@@ -5,20 +5,19 @@ from rest_framework_simplejwt.views import (
 )
 from .views import (
     ProjectListCreateAPIView,
-    ProjectTaskLİstCreateAPIVİew,
+    ProjectTaskListCreateAPIView,  # <-- 'İ' harfleri 'I' yapıldı
     TaskDetailAPIView,
 )
 
 urlpatterns = [
-    #JWT Auth endpointleri
+    # JWT Auth endpointleri
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name= 'token_refresh'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    #Proje endpointleri
-    path('projects/', ProjectListCreateAPIView.as_view(), name ='project-list-create'),
-    path('projects/<int:pk>/tasks/', ProjectTaskLİstCreateAPIVİew.as_view(), name = ' project-task-list-create'),
+    # Proje endpointleri
+    path('projects/', ProjectListCreateAPIView.as_view(), name='project-list-create'),
+    path('projects/<int:pk>/tasks/', ProjectTaskListCreateAPIView.as_view(), name='project-task-list-create'),  # <-- 'İ' harfleri 'I' yapıldı
 
-    # görev endpointleri
-    path('tasks/<int:pk>/', TaskDetailAPIView.as_view(), name= 'task-detail'),
-
+    # Görev endpointleri
+    path('tasks/<int:pk>/', TaskDetailAPIView.as_view(), name='task-detail'),
 ]
