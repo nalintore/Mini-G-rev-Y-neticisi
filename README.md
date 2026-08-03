@@ -74,12 +74,3 @@ Korumalı tüm endpoint'ler `IsAuthenticated` izni ile çalışmaktadır.
 * **Error Handling & Logging:** Tüm iş mantığında hata yakalama (try-except) ve logging mekanizması uygulanarak 400, 404, 500 gibi durumlar kontrollü olarak yönetilmiştir.
 * **Pagination & Filtering:** Sınırsız veri çekilmesini önlemek amacıyla özel `CustomPagination` yapısı ve `django.db.models.Q` ile filtrelenmiş arama motoru entegre edilmiştir.
 
----
-
-### 📦 Son Dokunuş: `requirements.txt` Oluşturma
-
-Son olarak terminalinde şu komutu çalıştırarak projede kullandığın tüm paketleri (`drf-spectacular`, `djangorestframework-simplejwt` vb.) `requirements.txt` dosyasına kaydet:
-
-```bash
-pip freeze > requirements.txt
-```
