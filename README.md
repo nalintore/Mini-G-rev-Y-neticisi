@@ -16,8 +16,8 @@ Bu proje, projelerinizi ve bu projelere bağlı görevleri yönetmenizi sağlaya
 
 1. **Repoyu klonlayın ve proje dizinine girin:**
    ```bash
-   git clone https://github.com/nalintore/Mini-G-rev-Y-neticisi.git
-   cd Mini-G-rev-Y-neticisi
+git clone [https://github.com/nalintore/Mini-Gorev-Yoneticisi.git](https://github.com/nalintore/Mini-Gorev-Yoneticisi.git)
+cd Mini-Gorev-Yoneticisi
    ```
 
 2. **Sanal ortamı oluşturun ve aktif edin:**
