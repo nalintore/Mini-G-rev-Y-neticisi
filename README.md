@@ -18,6 +18,7 @@ Bu proje, projelerinizi ve bu projelere bağlı görevleri yönetmenizi sağlaya
 ```bash
 git clone [https://github.com/nalintore/Mini-Gorev-Yoneticisi.git](https://github.com/nalintore/Mini-Gorev-Yoneticisi.git)
 cd Mini-Gorev-Yoneticisi
+'''
 
 2. **Sanal ortamı oluşturun ve aktif edin:**
    ```bash
