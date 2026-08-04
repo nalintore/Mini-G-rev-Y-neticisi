@@ -14,11 +14,10 @@ Bu proje, projelerinizi ve bu projelere bağlı görevleri yönetmenizi sağlaya
 
 ### ⚡ QUICK START (Yerel Ortamda Çalıştırma)
 
-1. **Repoyu klonlayın ve proje dizinine girin:**
-   ```bash
+1. ** Repoyu Klonlayın ve Proje Dizinine Girin
+```bash
 git clone [https://github.com/nalintore/Mini-Gorev-Yoneticisi.git](https://github.com/nalintore/Mini-Gorev-Yoneticisi.git)
 cd Mini-Gorev-Yoneticisi
-   ```
 
 2. **Sanal ortamı oluşturun ve aktif edin:**
    ```bash
